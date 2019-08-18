@@ -17,14 +17,46 @@ At first, install Tokyo Cabinet. On FreeBSD, run:
 Then, run:
 
 ```
-$ make
+$ make tcdb
 ```
 
 Make sure that `LDFLAGS` points to the correct paths. `RPATH` might be
 optional. Link Tokyo Cabinet with `-ltokyocabinet -lz -lbz2 -lrt -lpthread -lm
 -lc`.
 
-## Examples
+## Example
+
+```fortran
+! example.f90
+program main
+    use, intrinsic :: iso_c_binding, only: c_ptr
+    use :: tcdb
+    implicit none
+    type(c_ptr)                   :: hdb
+    character(len=:), allocatable :: value
+    logical                       :: err
+
+    hdb = tc_hdb_new()
+    err = tc_hdb_open(hdb, 'casket.tch', ior(HDB_OWRITER, HDB_OCREAT))
+    err = tc_hdb_put2(hdb, 'foo', 'bar')
+
+    value = tc_hdb_get2(hdb, 'foo')
+    print '(2a)', 'value: ', value
+
+    err = tc_hdb_close(hdb)
+    call tc_hdb_del(hdb)
+end program main
+```
+
+Compile and run the example with:
+
+```
+$ gfortran8 -Wl,-rpath=/usr/local/lib/gcc8/ -I/usr/local/include/ -L/usr/local/lib/ \
+  -O1 -o example example.f90 tcdb.o -ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc
+$ ./example
+```
+
+## Further Examples
 
 * **hdb** opens a hash database and does read/write operations.
 
