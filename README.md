@@ -70,9 +70,19 @@ $ make examples
 
 | Function Name     | Interface Name       | Bound |
 |-------------------|----------------------|-------|
+| `tchdbclose`      | `tc_hdb_close`       |   ✓   |
 | `tchdbcopy`       | `tc_hdb_copy`        |   ✓   |
+| `tchdbdel`        | `tc_hdb_del`         |   ✓   |
+| `tchdbecode`      | `tc_hdb_ecode`       |   ✓   |
+| `tchdberrmsg`     | `tc_hdb_err_msg`     |   ✓   |
 | `tchdbfsiz`       | `tc_hdb_fsiz`        |   ✓   |
+| `tchdbget2`       | `tc_hdb_get2`        |   ✓   |
+| `tchdbiterinit`   | `tc_hdb_iter_init`   |   ✓   |
+| `tchdbiternext2`  | `tc_hdb_iter_next2`  |   ✓   |
+| `tchdbnew`        | `tc_hdb_new`         |   ✓   |
+| `tchdbopen`       | `tc_hdb_open`        |   ✓   |
 | `tchdboptimize`   | `tc_hdb_optimize`    |   ✓   |
+| `tchdbput2`       | `tc_hdb_put2`        |   ✓   |
 | `tchdbrnum`       | `tc_hdb_rnum`        |   ✓   |
 | `tchdbsetcache`   | `tc_hdb_set_cache`   |   ✓   |
 | `tchdbsetmutex`   | `tc_hdb_set_mutex`   |   ✓   |
@@ -80,18 +90,8 @@ $ make examples
 | `tchdbtranabort`  | `tc_hdb_tran_abort`  |   ✓   |
 | `tchdbtranbegin`  | `tc_hdb_tran_begin`  |   ✓   |
 | `tchdbtrancommit` | `tc_hdb_tran_commit` |   ✓   |
-| `tchdbvanish`     | `tc_hdb_vanish`      |   ✓   |
-| `tchdbclose`      | `tc_hdb_close`       |   ✓   |
-| `tchdbdel`        | `tc_hdb_del`         |   ✓   |
-| `tchdbecode`      | `tc_hdb_ecode`       |   ✓   |
-| `tchdberrmsg`     | `tc_hdb_err_msg`     |   ✓   |
-| `tchdbget2`       | `tc_hdb_get2`        |   ✓   |
-| `tchdbiterinit`   | `tc_hdb_iter_init`   |   ✓   |
-| `tchdbiternext2`  | `tc_hdb_iter_next2`  |   ✓   |
-| `tchdbnew`        | `tc_hdb_new`         |   ✓   |
-| `tchdbopen`       | `tc_hdb_open`        |   ✓   |
-| `tchdbput2`       | `tc_hdb_put2`        |   ✓   |
 | `tchdbtune`       | `tc_hdb_tune`        |   ✓   |
+| `tchdbvanish`     | `tc_hdb_vanish`      |   ✓   |
 | `tchdbvsiz2`      | `tc_hdb_vsiz2`       |   ✓   |
 
 ## Licence
