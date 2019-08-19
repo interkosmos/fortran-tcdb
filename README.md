@@ -1,5 +1,6 @@
 # f08tcdb: Fortran 2008 Interface to Tokyo Cabinet
-An ISO C binding interface to the Tokyo Cabinet key-value database for Fortran
+An ISO C binding interface to the
+[https://fallabs.com/tokyocabinet/](Tokyo Cabinet) key-value database for Fortran
 2008. At the moment, only string-based hash databases are supported.
 
 ![Tokyo Cabinet](logo.png)
@@ -48,11 +49,18 @@ program main
 end program main
 ```
 
-Compile and run the example with:
+On FreeBSD, compile and run the example with:
 
 ```
 $ gfortran8 -Wl,-rpath=/usr/local/lib/gcc8/ -I/usr/local/include/ -L/usr/local/lib/ \
-  -O1 -o example example.f90 tcdb.o -ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc
+  -O1 -o example example.f90 tcdb.o -ltokyocabinet
+$ ./example
+```
+
+On Linux:
+
+```
+$ gfortran -I/usr/include/ -L/usr/lib/ -O1 -o example example.f90 tcdb.o -ltokyocabinet
 $ ./example
 ```
 
