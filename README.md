@@ -1,6 +1,6 @@
 # f08tcdb: Fortran 2008 Interface to Tokyo Cabinet
 An ISO C binding interface to the
-[https://fallabs.com/tokyocabinet/](Tokyo Cabinet) key-value database for Fortran
+[Tokyo Cabinet](https://fallabs.com/tokyocabinet/) key-value database for Fortran
 2008. At the moment, only string-based hash databases are supported.
 
 ![Tokyo Cabinet](logo.png)
