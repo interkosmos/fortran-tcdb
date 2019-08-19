@@ -2,7 +2,7 @@
 An ISO C binding interface to the Tokyo Cabinet key-value database for Fortran
 2008. At the moment, only string-based hash databases are supported.
 
-![Tokyo Cabinet](https://fallabs.com/tokyocabinet/logo.png)
+![Tokyo Cabinet](logo.png)
 
 Tested with Tokyo Cabinet 1.4.48 on FreeBSD 12 with GNU Fortran 8, but should be
 compatible to other Unix-like operating systems and Fortran 2008 compilers.
