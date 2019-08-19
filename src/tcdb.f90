@@ -133,7 +133,7 @@ module tcdb
         enumerator :: HDB_OTSYNC  = shiftl(1, 6)
     end enum
 
-    ! Interface functions and routines to libc.
+    ! Function and routine interfaces to libc.
     interface
         function c_strlen(str) bind(c, name='strlen')
             import :: c_ptr, c_size_t
@@ -147,7 +147,7 @@ module tcdb
         end subroutine c_free
     end interface
 
-    ! Interface functions and routines to Tokyo Cabinet.
+    ! Function and routine interfaces to Tokyo Cabinet.
     interface
         ! bool tchdbclose(TCHDB *hdb)
         function tc_hdb_close(hdb) bind(c, name='tchdbclose')
