@@ -14,7 +14,7 @@ additional function call is performed. To avoid these wrappers, some interface
 are exposed with a postfix underscore in their name, but all string arguments
 must end with `c_null_char`:
 
-```
+```fortran
 ! Calling the wrapper function that adds `c_null_char` for us:
 err = tc_hdb_put2(hdb, 'foo', 'bar')
 ! Calling the interface directly:
