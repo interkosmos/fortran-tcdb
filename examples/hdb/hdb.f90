@@ -1,7 +1,7 @@
 ! hdb.f90
 !
-! Example program using Tokyo Cabinet that writes to a hash database
-! `casket.tch` and then reads the key-value pairs from it.
+! Example program that writes to a hash database `casket.tch` and then reads
+! the key-value pairs from it.
 !
 ! Author:   Philipp Engel
 ! Licence:  ISC
@@ -9,9 +9,10 @@ program main
     use, intrinsic :: iso_c_binding, only: c_ptr
     use :: tcdb
     implicit none
-    ! Number of elements of the bucket array. If it pool by power of 2. If it
-    ! is negative, the default value is specified. The default value is 10
-    ! standing for 2^10 = 1024.
+    ! Number of elements of the bucket array. If it is not defined or not more
+    ! than 0, the default value is specified. The default value is 131071.
+    ! Suggested size of the bucket array is about from 0.5 to 4 times of the
+    ! number of all records to be stored.
     integer(kind=8), parameter :: BNUM = 131071
 
     ! Size of record alignment by power of 2. If it is negative, the default
@@ -41,7 +42,7 @@ program main
     character(len=:), allocatable :: key
     character(len=:), allocatable :: value
 
-    ! Create hash database object.
+    ! Create hash database handle.
     hdb = tc_hdb_new()
 
     ! Optional tuning.
@@ -96,12 +97,12 @@ program main
         end do
     end if
 
-    ! Close hash database object.
+    ! Close hash database handle.
     if (.not. tc_hdb_close(hdb)) then
         ecode = tc_hdb_ecode(hdb)
         print '(2a)', 'Error: ', tc_hdb_err_msg(ecode)
     end if
 
-    ! Delete hash database object.
+    ! Delete hash database handle.
     call tc_hdb_del(hdb)
 end program main
