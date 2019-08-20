@@ -56,6 +56,7 @@ module tcdb
     public :: HDB_OLCKNB
     public :: HDB_OTSYNC
 
+    ! Interfaces and wrapper routines.
     public :: tc_hdb_close
     public :: tc_hdb_copy
     public :: tc_hdb_del
@@ -79,6 +80,12 @@ module tcdb
     public :: tc_hdb_tune
     public :: tc_hdb_vanish
     public :: tc_hdb_vsiz2
+
+    ! Raw interfaces, require string arguments having `c_null_char` appended.
+    public :: tc_hdb_copy_
+    public :: tc_hdb_open_
+    public :: tc_hdb_put2_
+    public :: tc_hdb_vsiz2_
 
     ! Enumerations.
     enum, bind(c)
