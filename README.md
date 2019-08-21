@@ -5,7 +5,7 @@ An ISO C binding interface to the
 
 ![Tokyo Cabinet](logo.png)
 
-Tested with Tokyo Cabinet 1.4.48 on FreeBSD 12 with GNU Fortran 8, but should be
+Tested with Tokyo Cabinet 1.4.48 on FreeBSD 12 with GNU Fortran 9, but should be
 compatible to other Unix-like operating systems and Fortran 2008 compilers.
 
 In some cases, wrapper routines are used to add `c_null_char` to string
@@ -44,7 +44,7 @@ optional. Link Tokyo Cabinet with `-ltokyocabinet -lz -lbz2 -lrt -lpthread -lm
 ! example.f90
 program main
     use, intrinsic :: iso_c_binding, only: c_ptr
-    use :: tcdb
+    use :: tchdb
     implicit none
     type(c_ptr)                   :: hdb
     character(len=:), allocatable :: value
@@ -62,18 +62,11 @@ program main
 end program main
 ```
 
-On FreeBSD, compile and run the example with:
+Compile and run the example with:
 
 ```
-$ gfortran8 -Wl,-rpath=/usr/local/lib/gcc8/ -I/usr/local/include/ -L/usr/local/lib/ \
-  -O1 -o example example.f90 tcdb.o -ltokyocabinet
-$ ./example
-```
-
-On Linux:
-
-```
-$ gfortran -I/usr/include/ -L/usr/lib/ -O1 -o example example.f90 tcdb.o -ltokyocabinet
+$ gfortran9 -Wl,-rpath=/usr/local/lib/gcc9/ -I/usr/local/include/ -L/usr/local/lib/ \
+  -O1 -o example example.f90 tcdb.o tchdb.o -ltokyocabinet
 $ ./example
 ```
 
@@ -88,6 +81,7 @@ $ make examples
 ```
 
 ## Coverage
+### Hash Database API
 
 | Function Name     | Fortran Interface Name                   | Bound |
 |-------------------|------------------------------------------|-------|
