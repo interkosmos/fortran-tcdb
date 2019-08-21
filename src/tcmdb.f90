@@ -9,7 +9,7 @@ module tcmdb
                                            c_f_pointer, c_bool, c_char, c_int, &
                                            c_int8_t, c_int32_t, c_int64_t, &
                                            c_null_char, c_ptr, c_size_t
-    use :: tcdb
+    use :: tcutil
     implicit none
     private
 
@@ -25,7 +25,6 @@ module tcmdb
     public :: tc_mdb_iter_init
     public :: tc_mdb_iter_next
     public :: tc_mdb_iter_next2
-    public :: tc_mdb_msize
     public :: tc_mdb_new
     public :: tc_mdb_new2
     public :: tc_mdb_out
@@ -73,11 +72,11 @@ module tcmdb
         end function tc_mdb_add_int
 
         ! void tcmdbcutfront(TCMDB *mdb, int num)
-        function tc_mdb_cut_front(mdb, num) bind(c, name='tcmdbitercutfront')
-            import :: c_ptr
+        function tc_mdb_cut_front(mdb, num) bind(c, name='tcmdbcutfront')
+            import :: c_int, c_ptr
             type(c_ptr),         intent(in), value :: mdb
             integer(kind=c_int), intent(in), value :: num
-            type(c_ptr)                            :: tc_mdb_iter_cut_front
+            type(c_ptr)                            :: tc_mdb_cut_front
         end function tc_mdb_cut_front
 
         ! TCLIST *tcmdbfwmkeys(TCMDB *mdb, const void *pbuf, int psiz, int max)
