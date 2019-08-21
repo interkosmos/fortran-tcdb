@@ -7,7 +7,7 @@
 ! Licence:  ISC
 program main
     use, intrinsic :: iso_c_binding, only: c_ptr
-    use :: tcdb
+    use :: tchdb
     implicit none
     ! Number of elements of the bucket array. If it is not defined or not more
     ! than 0, the default value is specified. The default value is 131071.
@@ -62,6 +62,9 @@ program main
         ecode = tc_hdb_ecode(hdb)
         print '(2a)', 'Error: ', tc_hdb_err_msg(ecode)
     end if
+
+    ! Output database file name.
+    print '(/, 2a)', 'File: ', tc_hdb_path(hdb)
 
     ! Put key-value pairs into database.
     if (.not. tc_hdb_put2(hdb, 'foo', 'hop') .or. &
