@@ -64,7 +64,7 @@ program main
     end if
 
     ! Output database file name.
-    print '(/, 2a)', 'File: ', tc_hdb_path(hdb)
+    print '(2a, /)', 'File: ', tc_hdb_path(hdb)
 
     ! Put key-value pairs into database.
     if (.not. tc_hdb_put2(hdb, 'foo', 'hop') .or. &
