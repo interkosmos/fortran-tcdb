@@ -14,6 +14,7 @@ examples:
 tcdb:
 	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tcdb.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tchdb.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tchdb.f90
 
 clean:
 	rm *.mod $(TARGET) hdb

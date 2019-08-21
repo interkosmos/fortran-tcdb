@@ -67,6 +67,7 @@ module tchdb
     public :: tc_hdb_err_msg
     public :: tc_hdb_fsiz
     public :: tc_hdb_fwm_keys
+    public :: tc_hdb_fwm_keys2
     public :: tc_hdb_get
     public :: tc_hdb_get2
     public :: tc_hdb_get3
@@ -166,20 +167,6 @@ module tchdb
         enumerator :: HDB_OLCKNB  = shiftl(1, 5)
         enumerator :: HDB_OTSYNC  = shiftl(1, 6)
     end enum
-
-    ! Function and routine interfaces to libc.
-    interface
-        function c_strlen(str) bind(c, name='strlen')
-            import :: c_ptr, c_size_t
-            type(c_ptr), intent(in), value :: str
-            integer(c_size_t)              :: c_strlen
-        end function c_strlen
-
-        subroutine c_free(ptr) bind(c, name='free')
-            import :: c_ptr
-            type(c_ptr), intent(in), value :: ptr
-        end subroutine c_free
-    end interface
 
     ! Function and routine interfaces to Tokyo Cabinet.
     interface
@@ -317,7 +304,7 @@ module tchdb
             logical(kind=c_bool)           :: tc_hdb_iter_next3
         end function tc_hdb_iter_next3
 
-        ! TCMAP *tchdbnew(void)
+        ! TCHDB *tchdbnew(void)
         function tc_hdb_new() bind(c, name='tchdbnew')
             import :: c_ptr
             type(c_ptr) :: tc_hdb_new

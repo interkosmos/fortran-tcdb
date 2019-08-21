@@ -6,8 +6,27 @@
 ! Licence:  ISC
 module tcdb
     use, intrinsic :: iso_c_binding, only: c_associated, c_f_pointer, c_char, &
-                                           c_null_char, c_ptr
+                                           c_null_char, c_ptr, c_size_t
     implicit none
+    private
+
+    public :: c_f_string_ptr
+    public :: c_strlen
+    public :: c_free
+
+    ! Function and routine interfaces to libc.
+    interface
+        function c_strlen(str) bind(c, name='strlen')
+            import :: c_ptr, c_size_t
+            type(c_ptr), intent(in), value :: str
+            integer(c_size_t)              :: c_strlen
+        end function c_strlen
+
+        subroutine c_free(ptr) bind(c, name='free')
+            import :: c_ptr
+            type(c_ptr), intent(in), value :: ptr
+        end subroutine c_free
+    end interface
 contains
     subroutine c_f_string_ptr(c_string, f_string)
         !! Utility routine that copies a C string, passed as a C pointer, to a

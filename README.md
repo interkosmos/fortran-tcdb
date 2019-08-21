@@ -1,4 +1,5 @@
 # f08tcdb: Fortran 2008 Interface to Tokyo Cabinet
+
 An ISO C binding interface to the
 [Tokyo Cabinet](https://fallabs.com/tokyocabinet/) key-value database for Fortran
 2008. At the moment, only hash databases are supported.
@@ -22,6 +23,7 @@ err = tc_hdb_put2_(hdb, 'foo' // c_null_char, 'bar' // c_null_char)
 ```
 
 ## Build
+
 At first, install Tokyo Cabinet. On FreeBSD, run:
 
 ```
@@ -81,10 +83,43 @@ $ make examples
 ```
 
 ## Coverage
+### On-Memory Hash Database API
+
+| Function Name     | Fortran Interface Name                   | Bound |
+|-------------------|------------------------------------------|-------|
+| `tcmdbadddouble`  | `tc_mdb_add_double`                      |   ✓   |
+| `tcmdbaddint`     | `tc_mdb_add_int`                         |   ✓   |
+| `tcmdbcutfront`   | `tc_mdb_cut_front`                       |   ✓   |
+| `tcmdbdel`        | `tc_mdb_del`                             |   ✓   |
+| `tcmdbfwmkeys`    | `tc_mdb_fwm_keys`                        |   ✓   |
+| `tcmdbfwmkeys2`   | `tc_mdb_fwm_keys2`, `tc_mdb_fwm_keys2_`  |   ✓   |
+| `tcmdbget`        | `tc_mdb_get`                             |   ✓   |
+| `tcmdbget2`       | `tc_mdb_get2`, `tc_mdb_get2_`            |   ✓   |
+| `tcmdbiterinit`   | `tc_mdb_iter_init`                       |   ✓   |
+| `tcmdbiternext`   | `tc_mdb_iter_next`                       |   ✓   |
+| `tcmdbiternext2`  | `tc_mdb_iter_next2`                      |   ✓   |
+| `tcmdbmsiz`       | `tc_mdb_msiz`                            |   ✓   |
+| `tcmdbnew`        | `tc_mdb_new`                             |   ✓   |
+| `tcmdbnew2`       | `tc_mdb_new2`                            |   ✓   |
+| `tcmdbout`        | `tc_mdb_out`                             |   ✓   |
+| `tcmdbout2`       | `tc_mdb_out2`, `tc_mdb_out2_`            |   ✓   |
+| `tcmdbput`        | `tc_mdb_put`                             |   ✓   |
+| `tcmdbput2`       | `tc_mdb_put2`, `tc_mdb_put2_`            |   ✓   |
+| `tcmdbputcat`     | `tc_mdb_put_cat`                         |   ✓   |
+| `tcmdbputcat2`    | `tc_mdb_put_cat2`, `tc_mdb_put_cat2_`    |   ✓   |
+| `tcmdbputkeep`    | `tc_mdb_put_keep`                        |   ✓   |
+| `tcmdbputkeep2`   | `tc_mdb_put_keep2`, `tc_mdb_put_keep2_`  |   ✓   |
+| `tcmdbrnum`       | `tc_mdb_rnum`                            |   ✓   |
+| `tcmdbvanish`     | `tc_mdb_vanish`                          |   ✓   |
+| `tcmdbvsiz`       | `tc_mdb_vsiz`                            |   ✓   |
+| `tcmdbvsiz2`      | `tc_mdb_vsiz2`, `tc_mdb_vsiz2_`          |   ✓   |
+
 ### Hash Database API
 
 | Function Name     | Fortran Interface Name                   | Bound |
 |-------------------|------------------------------------------|-------|
+| `tchdbadddouble`  | `tc_hdb_add_double`                      |   ✓   |
+| `tchdbaddint`     | `tc_hdb_add_int`                         |   ✓   |
 | `tchdbclose`      | `tc_hdb_close`                           |   ✓   |
 | `tchdbcopy`       | `tc_hdb_copy`, `tc_hdb_copy_`            |   ✓   |
 | `tchdbdel`        | `tc_hdb_del`                             |   ✓   |
@@ -129,4 +164,5 @@ $ make examples
 | `tchdbvsiz2`      | `tc_hdb_vsiz2`, `tc_hdb_vsiz2_`          |   ✓   |
 
 ## Licence
+
 ISC
