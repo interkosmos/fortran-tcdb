@@ -9,7 +9,7 @@ module tchdb
                                            c_f_pointer, c_bool, c_char, c_int, &
                                            c_int8_t, c_int32_t, c_int64_t, &
                                            c_null_char, c_ptr, c_size_t
-    use :: tcdb
+    use :: tcutil
     implicit none
     private
 
@@ -62,14 +62,17 @@ module tchdb
     public :: tc_hdb_add_int
     public :: tc_hdb_close
     public :: tc_hdb_copy
+    public :: tc_hdb_copy_
     public :: tc_hdb_del
     public :: tc_hdb_ecode
     public :: tc_hdb_err_msg
     public :: tc_hdb_fsiz
     public :: tc_hdb_fwm_keys
     public :: tc_hdb_fwm_keys2
+    public :: tc_hdb_fwm_keys2_
     public :: tc_hdb_get
     public :: tc_hdb_get2
+    public :: tc_hdb_get2_
     public :: tc_hdb_get3
     public :: tc_hdb_iter_init
     public :: tc_hdb_iter_next
@@ -77,21 +80,27 @@ module tchdb
     public :: tc_hdb_iter_next3
     public :: tc_hdb_new
     public :: tc_hdb_open
+    public :: tc_hdb_open_
     public :: tc_hdb_optimize
     public :: tc_hdb_out
     public :: tc_hdb_out2
+    public :: tc_hdb_out2_
     public :: tc_hdb_path
     public :: tc_hdb_put
     public :: tc_hdb_put2
+    public :: tc_hdb_put2_
     public :: tc_hdb_put_async
     public :: tc_hdb_put_async2
+    public :: tc_hdb_put_async2_
     public :: tc_hdb_put_cat
     public :: tc_hdb_put_cat2
+    public :: tc_hdb_put_cat2_
     public :: tc_hdb_put_keep
     public :: tc_hdb_put_keep2
+    public :: tc_hdb_put_keep2_
     public :: tc_hdb_rnum
-    public :: tc_hdb_set_dfunit
     public :: tc_hdb_set_cache
+    public :: tc_hdb_set_dfunit
     public :: tc_hdb_set_mutex
     public :: tc_hdb_set_xmsiz
     public :: tc_hdb_sync
@@ -102,17 +111,6 @@ module tchdb
     public :: tc_hdb_vanish
     public :: tc_hdb_vsiz
     public :: tc_hdb_vsiz2
-
-    ! Raw interfaces, require null termination of string arguments.
-    public :: tc_hdb_copy_
-    public :: tc_hdb_fwm_keys2_
-    public :: tc_hdb_get2_
-    public :: tc_hdb_open_
-    public :: tc_hdb_out2_
-    public :: tc_hdb_put2_
-    public :: tc_hdb_put_async2_
-    public :: tc_hdb_put_cat2_
-    public :: tc_hdb_put_keep2_
     public :: tc_hdb_vsiz2_
 
     ! Enumerations.
@@ -605,7 +603,7 @@ contains
 
     ! char *tchdbiternext2(TCHDB *hdb)
     function tc_hdb_iter_next2(hdb)
-        !! Wrapper for `tc_hdb_iter_next2()` that converts the returned C
+        !! Wrapper for `tc_hdb_iter_next2_()` that converts the returned C
         !! pointer to Fortran character.
         type(c_ptr),      intent(in)  :: hdb
         type(c_ptr)                   :: ptr

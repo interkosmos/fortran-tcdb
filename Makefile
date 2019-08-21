@@ -9,11 +9,12 @@ LDLIBS  = -ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc
 all: tcdb examples
 
 examples:
-	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o hdb examples/hdb/hdb.f90 tcdb.o tchdb.o $(LDLIBS)
+	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o hdb examples/hdb/hdb.f90 tcutil.o tchdb.o $(LDLIBS)
 
 tcdb:
-	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tcdb.f90
-	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tchdb.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tcutil.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tclist.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tcmdb.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tchdb.f90
 
 clean:

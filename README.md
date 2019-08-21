@@ -68,7 +68,7 @@ Compile and run the example with:
 
 ```
 $ gfortran9 -Wl,-rpath=/usr/local/lib/gcc9/ -I/usr/local/include/ -L/usr/local/lib/ \
-  -O1 -o example example.f90 tcdb.o tchdb.o -ltokyocabinet
+  -O1 -o example example.f90 tcutil.o tchdb.o -ltokyocabinet
 $ ./example
 ```
 
@@ -83,6 +83,41 @@ $ make examples
 ```
 
 ## Coverage
+
+### List Array API
+
+| Function Name     | Fortran Interface Name                   | Bound |
+|-------------------|------------------------------------------|-------|
+| `tclistbsearch`   | `tc_list_bsearch`                        |   ✓   |
+| `tclistclear`     | `tc_list_clear`                          |   ✓   |
+| `tclistdel`       | `tc_list_del`                            |   ✓   |
+| `tclistdump`      | `tc_list_dump`                           |   ✓   |
+| `tclistdup`       | `tc_list_dup`                            |   ✓   |
+| `tclistinsert`    | `tc_list_insert`                         |   ✓   |
+| `tclistinsert2`   | `tc_list_insert2`, `tc_list_insert2_`    |   ✓   |
+| `tclistload`      | `tc_list_load`                           |   ✓   |
+| `tclistlsearch`   | `tc_list_lsearch`                        |   ✓   |
+| `tclistnew`       | `tc_list_new`                            |   ✓   |
+| `tclistnew2`      | `tc_list_new2`                           |   ✓   |
+| `tclistnew3`      |                                          |       |
+| `tclistnum`       | `tc_list_num`                            |   ✓   |
+| `tclistover`      | `tc_list_over`                           |   ✓   |
+| `tclistover2`     | `tc_list_over2`, `tc_list_over2_`        |   ✓   |
+| `tclistpop`       | `tc_list_pop`                            |   ✓   |
+| `tclistpop2`      | `tc_list_pop2`                           |   ✓   |
+| `tclistpush`      | `tc_list_push`                           |   ✓   |
+| `tclistpush2`     | `tc_list_push2`                          |   ✓   |
+| `tclistpush2_`    | `tc_list_push2_`                         |   ✓   |
+| `tclistremove`    | `tc_list_remove`                         |   ✓   |
+| `tclistremove2`   | `tc_list_remove2`, `tc_list_remove2_`    |   ✓   |
+| `tclistshift`     | `tc_list_shift`                          |   ✓   |
+| `tclistshift2`    | `tc_list_shift2`, `tc_list_shift2_`      |   ✓   |
+| `tclistsort`      | `tc_list_sort`                           |   ✓   |
+| `tclistunshift`   | `tc_list_unshift`                        |   ✓   |
+| `tclistunshift2`  | `tc_list_unshift2`, `tc_list_unshift2_`  |   ✓   |
+| `tclistval`       | `tc_list_val`                            |   ✓   |
+| `tclistval2`      | `tc_list_val2`, `tc_list_val2_`          |   ✓   |
+
 ### On-Memory Hash Database API
 
 | Function Name     | Fortran Interface Name                   | Bound |
