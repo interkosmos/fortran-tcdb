@@ -37,7 +37,6 @@ program main
     integer(kind=4), parameter :: RCNUM = 0
 
     type(c_ptr)                   :: hdb
-    integer                       :: ecode
     integer                       :: size
     character(len=:), allocatable :: key
     character(len=:), allocatable :: value
@@ -46,22 +45,16 @@ program main
     hdb = tc_hdb_new()
 
     ! Optional tuning.
-    if (.not. tc_hdb_tune(hdb, BNUM, APOW, FPOW, OPTS)) then
-        ecode = tc_hdb_ecode(hdb)
-        print '(2a)', 'Error: ', tc_hdb_err_msg(ecode)
-    end if
+    if (.not. tc_hdb_tune(hdb, BNUM, APOW, FPOW, OPTS)) &
+        print '(2a)', 'Error: ', tc_hdb_err_msg(tc_hdb_ecode(hdb))
 
     ! Optional setting of cache size.
-    if (.not. tc_hdb_set_cache(hdb, RCNUM)) then
-        ecode = tc_hdb_ecode(hdb)
-        print '(2a)', 'Error: ', tc_hdb_err_msg(ecode)
-    end if
+    if (.not. tc_hdb_set_cache(hdb, RCNUM)) &
+        print '(2a)', 'Error: ', tc_hdb_err_msg(tc_hdb_ecode(hdb))
 
     ! Open hash database file.
-    if (.not. tc_hdb_open(hdb, 'casket.tch', ior(HDB_OWRITER, HDB_OCREAT))) then
-        ecode = tc_hdb_ecode(hdb)
-        print '(2a)', 'Error: ', tc_hdb_err_msg(ecode)
-    end if
+    if (.not. tc_hdb_open(hdb, 'casket.tch', ior(HDB_OWRITER, HDB_OCREAT))) &
+        print '(2a)', 'Error: ', tc_hdb_err_msg(tc_hdb_ecode(hdb))
 
     ! Output database file name.
     print '(2a, /)', 'File: ', tc_hdb_path(hdb)
@@ -70,10 +63,8 @@ program main
     if (.not. tc_hdb_put2(hdb, 'foo', 'hop') .or. &
         .not. tc_hdb_put2(hdb, 'bar', 'step') .or. &
         .not. tc_hdb_put2(hdb, 'qux', 'roll') .or. &
-        .not. tc_hdb_put2(hdb, 'baz', 'jump')) then
-        ecode = tc_hdb_ecode(hdb)
-        print '(2a)', 'Error: ', tc_hdb_err_msg(ecode)
-    end if
+        .not. tc_hdb_put2(hdb, 'baz', 'jump')) &
+        print '(2a)', 'Error: ', tc_hdb_err_msg(tc_hdb_ecode(hdb))
 
     ! Get single value and its size.
     value = tc_hdb_get2(hdb, 'foo')
@@ -83,8 +74,7 @@ program main
     if (len(value) > 0) then
         print '(3a, i0, a, /)', 'value: ', value, ' (length: ', size, ')'
     else
-        ecode = tc_hdb_ecode(hdb)
-        print '(2a)', 'Error: ', tc_hdb_err_msg(ecode)
+        print '(2a)', 'Error: ', tc_hdb_err_msg(tc_hdb_ecode(hdb))
     end if
 
     ! Iterate over whole hash database and print key-value pairs.
@@ -101,10 +91,8 @@ program main
     end if
 
     ! Close hash database handle.
-    if (.not. tc_hdb_close(hdb)) then
-        ecode = tc_hdb_ecode(hdb)
-        print '(2a)', 'Error: ', tc_hdb_err_msg(ecode)
-    end if
+    if (.not. tc_hdb_close(hdb)) &
+        print '(2a)', 'Error: ', tc_hdb_err_msg(tc_hdb_ecode(hdb))
 
     ! Delete hash database handle.
     call tc_hdb_del(hdb)
