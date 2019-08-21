@@ -1,7 +1,7 @@
 # f08tcdb: Fortran 2008 Interface to Tokyo Cabinet
 An ISO C binding interface to the
 [Tokyo Cabinet](https://fallabs.com/tokyocabinet/) key-value database for Fortran
-2008. At the moment, only string-based hash databases are supported.
+2008. At the moment, only hash databases are supported.
 
 ![Tokyo Cabinet](logo.png)
 
@@ -11,7 +11,7 @@ compatible to other Unix-like operating systems and Fortran 2008 compilers.
 In some cases, wrapper routines are used to add `c_null_char` to string
 arguments automatically. Performance is therefore slightly decreased, as an
 additional function call is performed. To avoid these wrappers, some interfaces
-are exposed directly, with a postfix underscore in their name, but null
+are exposed directly, with a trailing underscore in their name, but null
 termination must be handled manually:
 
 ```fortran
