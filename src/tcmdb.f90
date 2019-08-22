@@ -115,13 +115,6 @@ module tcmdb
             type(c_ptr)                               :: tc_mdb_get2_
         end function tc_mdb_get2_
 
-        ! bool tcmdbiterinit(TCMDB *mdb)
-        function tc_mdb_iter_init(mdb) bind(c, name='tcmdbiterinit')
-            import :: c_bool, c_ptr
-            type(c_ptr), intent(in), value :: mdb
-            logical(kind=c_bool)           :: tc_mdb_iter_init
-        end function tc_mdb_iter_init
-
         ! void *tcmdbiternext(TCMDB *mdb, int *sp)
         function tc_mdb_iter_next(mdb, sp) bind(c, name='tcmdbiternext')
             import :: c_int, c_ptr
@@ -174,46 +167,6 @@ module tcmdb
             logical(kind=c_bool)                      :: tc_mdb_out2_
         end function tc_mdb_out2_
 
-        ! bool tcmdbput(TCMDB *mdb, const void *kbuf, int ksiz, const void *vbuf, int vsiz)
-        function tc_mdb_put(mdb, kbuf, ksiz, vbuf, vsiz) bind(c, name='tcmdbput')
-            import :: c_bool, c_int, c_ptr
-            type(c_ptr),         intent(in), value :: mdb
-            type(c_ptr),         intent(in), value :: kbuf
-            integer(kind=c_int), intent(in), value :: ksiz
-            type(c_ptr),         intent(in), value :: vbuf
-            integer(kind=c_int), intent(in), value :: vsiz
-            logical(kind=c_bool)                   :: tc_mdb_put
-        end function tc_mdb_put
-
-        ! bool tcmdbput2(TCMDB *mdb, const char *kstr, const char *vstr)
-        function tc_mdb_put2_(mdb, kstr, vstr) bind(c, name='tcmdbput2')
-            import :: c_bool, c_char, c_ptr
-            type(c_ptr),            intent(in), value :: mdb
-            character(kind=c_char), intent(in)        :: kstr
-            character(kind=c_char), intent(in)        :: vstr
-            logical(kind=c_bool)                      :: tc_mdb_put2_
-        end function tc_mdb_put2_
-
-        ! bool tcmdbputcat(TCMDB *mdb, const void *kbuf, int ksiz, const void *vbuf, int vsiz)
-        function tc_mdb_put_cat(mdb, kbuf, ksiz, vbuf, vsiz) bind(c, name='tcmdbputcat')
-            import :: c_bool, c_int, c_ptr
-            type(c_ptr),         intent(in), value :: mdb
-            type(c_ptr),         intent(in), value :: kbuf
-            integer(kind=c_int), intent(in), value :: ksiz
-            type(c_ptr),         intent(in), value :: vbuf
-            integer(kind=c_int), intent(in), value :: vsiz
-            logical(kind=c_bool)                   :: tc_mdb_put_cat
-        end function tc_mdb_put_cat
-
-        ! bool tcmdbputcat2(TCMDB *mdb, const char *kstr, const char *vstr)
-        function tc_mdb_put_cat2_(mdb, kstr, vstr) bind(c, name='tcmdbputcat2')
-            import :: c_bool, c_char, c_ptr
-            type(c_ptr),            intent(in), value :: mdb
-            character(kind=c_char), intent(in)        :: kstr
-            character(kind=c_char), intent(in)        :: vstr
-            logical(kind=c_bool)                      :: tc_mdb_put_cat2_
-        end function tc_mdb_put_cat2_
-
         ! bool tcmdbputkeep(TCMDB *mdb, const void *kbuf, int ksiz, const void *vbuf, int vsiz)
         function tc_mdb_put_keep(mdb, kbuf, ksiz, vbuf, vsiz) bind(c, name='tcmdbputkeep')
             import :: c_bool, c_int, c_ptr
@@ -241,13 +194,6 @@ module tcmdb
             integer(kind=c_int64_t)        :: tc_mdb_rnum
         end function tc_mdb_rnum
 
-        ! bool tcmdbvanish(TCMDB *mdb)
-        function tc_mdb_vanish(mdb) bind(c, name='tcmdbvanish')
-            import :: c_bool, c_ptr
-            type(c_ptr), intent(in), value :: mdb
-            logical(kind=c_bool)           :: tc_mdb_vanish
-        end function tc_mdb_vanish
-
         ! int tcmdbvsiz(TCMDB *mdb, const void *kbuf, int ksiz)
         function tc_mdb_vsiz(mdb, kbuf, ksiz) bind(c, name='tcmdbvsiz')
             import ::  c_int, c_ptr
@@ -270,6 +216,54 @@ module tcmdb
             import :: c_ptr
             type(c_ptr), intent(in), value :: mdb
         end subroutine tc_mdb_del
+
+        ! void tcmdbiterinit(TCMDB *mdb)
+        subroutine tc_mdb_iter_init(mdb) bind(c, name='tcmdbiterinit')
+            import :: c_ptr
+            type(c_ptr), intent(in), value :: mdb
+        end subroutine tc_mdb_iter_init
+
+        ! void tcmdbput(TCMDB *mdb, const void *kbuf, int ksiz, const void *vbuf, int vsiz)
+        subroutine tc_mdb_put(mdb, kbuf, ksiz, vbuf, vsiz) bind(c, name='tcmdbput')
+            import :: c_bool, c_int, c_ptr
+            type(c_ptr),         intent(in), value :: mdb
+            type(c_ptr),         intent(in), value :: kbuf
+            integer(kind=c_int), intent(in), value :: ksiz
+            type(c_ptr),         intent(in), value :: vbuf
+            integer(kind=c_int), intent(in), value :: vsiz
+        end subroutine tc_mdb_put
+
+        ! void tcmdbput2(TCMDB *mdb, const char *kstr, const char *vstr)
+        subroutine tc_mdb_put2_(mdb, kstr, vstr) bind(c, name='tcmdbput2')
+            import :: c_char, c_ptr
+            type(c_ptr),            intent(in), value :: mdb
+            character(kind=c_char), intent(in)        :: kstr
+            character(kind=c_char), intent(in)        :: vstr
+        end subroutine tc_mdb_put2_
+
+        ! void tcmdbputcat(TCMDB *mdb, const void *kbuf, int ksiz, const void *vbuf, int vsiz)
+        subroutine tc_mdb_put_cat(mdb, kbuf, ksiz, vbuf, vsiz) bind(c, name='tcmdbputcat')
+            import ::c_int, c_ptr
+            type(c_ptr),         intent(in), value :: mdb
+            type(c_ptr),         intent(in), value :: kbuf
+            integer(kind=c_int), intent(in), value :: ksiz
+            type(c_ptr),         intent(in), value :: vbuf
+            integer(kind=c_int), intent(in), value :: vsiz
+        end subroutine tc_mdb_put_cat
+
+        ! void tcmdbputcat2(TCMDB *mdb, const char *kstr, const char *vstr)
+        subroutine tc_mdb_put_cat2_(mdb, kstr, vstr) bind(c, name='tcmdbputcat2')
+            import :: c_char, c_ptr
+            type(c_ptr),            intent(in), value :: mdb
+            character(kind=c_char), intent(in)        :: kstr
+            character(kind=c_char), intent(in)        :: vstr
+        end subroutine tc_mdb_put_cat2_
+
+        ! void tcmdbvanish(TCMDB *mdb)
+        subroutine tc_mdb_vanish(mdb) bind(c, name='tcmdbvanish')
+            import :: c_ptr
+            type(c_ptr), intent(in), value :: mdb
+        end subroutine tc_mdb_vanish
     end interface
 contains
     ! TCLIST *tcmdbfwmkeys2(TCMDB *mdb, const char *pstr, int max);
@@ -334,30 +328,6 @@ contains
         tc_mdb_out2 = tc_mdb_out2_(mdb, kstr // c_null_char)
     end function tc_mdb_out2
 
-    ! bool tcmdbput2(TCMDB *mdb, const char *kstr, const char *vstr)
-    function tc_mdb_put2(mdb, kstr, vstr)
-        !! Wrapper for `tc_mdb_put2_()` that adds `c_null_char` to key and
-        !! value.
-        type(c_ptr),      intent(in) :: mdb
-        character(len=*), intent(in) :: kstr
-        character(len=*), intent(in) :: vstr
-        logical                      :: tc_mdb_put2
-
-        tc_mdb_put2 = tc_mdb_put2_(mdb, kstr // c_null_char, vstr // c_null_char)
-    end function tc_mdb_put2
-
-    ! bool tcmdbputcat2(TCMDB *mdb, const char *kstr, const char *vstr)
-    function tc_mdb_put_cat2(mdb, kstr, vstr)
-        !! Wrapper for `tc_mdb_put_cat2_()` that adds `c_null_char` to key and
-        !! value.
-        type(c_ptr),      intent(in) :: mdb
-        character(len=*), intent(in) :: kstr
-        character(len=*), intent(in) :: vstr
-        logical                      :: tc_mdb_put_cat2
-
-        tc_mdb_put_cat2 = tc_mdb_put_cat2_(mdb, kstr // c_null_char, vstr // c_null_char)
-    end function tc_mdb_put_cat2
-
     ! bool tcmdbputkeep2(TCMDB *mdb, const char *kstr, const char *vstr)
     function tc_mdb_put_keep2(mdb, kstr, vstr)
         !! Wrapper for `tc_mdb_put_keep2_()` that adds `c_null_char` to key and
@@ -379,4 +349,26 @@ contains
 
         tc_mdb_vsiz2 = tc_mdb_vsiz2_(mdb, kstr // c_null_char)
     end function tc_mdb_vsiz2
+
+    ! void tcmdbput2(TCMDB *mdb, const char *kstr, const char *vstr)
+    subroutine tc_mdb_put2(mdb, kstr, vstr)
+        !! Wrapper for `tc_mdb_put2_()` that adds `c_null_char` to key and
+        !! value.
+        type(c_ptr),      intent(in) :: mdb
+        character(len=*), intent(in) :: kstr
+        character(len=*), intent(in) :: vstr
+
+        call tc_mdb_put2_(mdb, kstr // c_null_char, vstr // c_null_char)
+    end subroutine tc_mdb_put2
+
+     ! void tcmdbputcat2(TCMDB *mdb, const char *kstr, const char *vstr)
+    subroutine tc_mdb_put_cat2(mdb, kstr, vstr)
+        !! Wrapper for `tc_mdb_put_cat2_()` that adds `c_null_char` to key and
+        !! value.
+        type(c_ptr),      intent(in) :: mdb
+        character(len=*), intent(in) :: kstr
+        character(len=*), intent(in) :: vstr
+
+        call tc_mdb_put_cat2_(mdb, kstr // c_null_char, vstr // c_null_char)
+    end subroutine tc_mdb_put_cat2
 end module tcmdb
