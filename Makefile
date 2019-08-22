@@ -1,5 +1,5 @@
-FC      = gfortran8
-RPATH   = -Wl,-rpath=/usr/local/lib/gcc8/
+FC      = gfortran9
+RPATH   = -Wl,-rpath=/usr/local/lib/gcc9/
 FFLAGS  = -Wall $(RPATH) -std=f2008 -Wall -fmax-errors=1 -fcheck=all
 LDFLAGS = -I/usr/local/include/ -L/usr/local/lib/
 LDLIBS  = -ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc
@@ -18,4 +18,4 @@ tcdb:
 	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tchdb.f90
 
 clean:
-	rm *.mod $(TARGET) hdb
+	rm *.mod *.o hdb
