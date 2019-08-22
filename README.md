@@ -84,7 +84,7 @@ $ make examples
 
 ## Coverage
 
-### List Array API
+### Array List API
 
 | Function Name     | Fortran Interface Name                   | Bound |
 |-------------------|------------------------------------------|-------|
