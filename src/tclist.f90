@@ -23,7 +23,6 @@ module tclist
     public :: tc_list_lsearch
     public :: tc_list_new
     public :: tc_list_new2
-    ! public :: tc_list_new3
     public :: tc_list_num
     public :: tc_list_over
     public :: tc_list_over2
@@ -261,8 +260,8 @@ contains
         !! Wrapper for `tc_list_pop2_()` that converts the returned C
         !! pointer to Fortran character.
         type(c_ptr), intent(in)       :: list
-        type(c_ptr)                   :: ptr
         character(len=:), allocatable :: tc_list_pop2
+        type(c_ptr)                   :: ptr
         integer(kind=8)               :: size
 
         ptr = tc_list_pop2_(list)
@@ -280,11 +279,11 @@ contains
     function tc_list_remove2(list, index)
         !! Wrapper for `tc_list_remove2_()` that converts the returned C
         !! pointer to Fortran character.
-        type(c_ptr),         intent(in) :: list
-        integer(kind=c_int), intent(in) :: index
-        type(c_ptr)                     :: ptr
-        character(len=:), allocatable   :: tc_list_remove2
-        integer(kind=8)                 :: size
+        type(c_ptr),         intent(in)  :: list
+        integer(kind=c_int), intent(in)  :: index
+        character(len=:),    allocatable :: tc_list_remove2
+        type(c_ptr)                      :: ptr
+        integer(kind=8)                  :: size
 
         ptr = tc_list_remove2_(list, index)
 
@@ -301,9 +300,9 @@ contains
     function tc_list_shift2(list)
         !! Wrapper for `tc_list_shift2_()` that converts the returned C
         !! pointer to Fortran character.
-        type(c_ptr), intent(in)       :: list
-        type(c_ptr)                   :: ptr
+        type(c_ptr),      intent(in)  :: list
         character(len=:), allocatable :: tc_list_shift2
+        type(c_ptr)                   :: ptr
         integer(kind=8)               :: size
 
         ptr = tc_list_shift2_(list)
@@ -321,11 +320,11 @@ contains
     function tc_list_val2(list, index)
         !! Wrapper for `tc_list_val2_()` that converts the returned C
         !! pointer to Fortran character.
-        type(c_ptr),         intent(in) :: list
-        integer(kind=c_int), intent(in) :: index
-        type(c_ptr)                     :: ptr
-        character(len=:), allocatable   :: tc_list_val2
-        integer(kind=8)                 :: size
+        type(c_ptr),         intent(in)  :: list
+        integer(kind=c_int), intent(in)  :: index
+        character(len=:),    allocatable :: tc_list_val2
+        type(c_ptr)                      :: ptr
+        integer(kind=8)                  :: size
 
         ptr = tc_list_val2_(list, index)
 

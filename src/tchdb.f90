@@ -545,8 +545,8 @@ contains
         !! Wrapper for `tc_hdb_err_msg_()` that converts the returned C pointer
         !! to Fortran character.
         integer,          intent(in)  :: ecode
-        type(c_ptr)                   :: ptr
         character(len=:), allocatable :: tc_hdb_err_msg
+        type(c_ptr)                   :: ptr
         integer(kind=8)               :: size
 
         ptr = tc_hdb_err_msg_(ecode)
@@ -586,8 +586,8 @@ contains
         !! Fortran character.
         type(c_ptr),      intent(in)  :: hdb
         character(len=*), intent(in)  :: kstr
-        type(c_ptr)                   :: ptr
         character(len=:), allocatable :: tc_hdb_get2
+        type(c_ptr)                   :: ptr
         integer(kind=8)               :: size
 
         ptr = tc_hdb_get2_(hdb, kstr // c_null_char)
@@ -606,8 +606,8 @@ contains
         !! Wrapper for `tc_hdb_iter_next2_()` that converts the returned C
         !! pointer to Fortran character.
         type(c_ptr),      intent(in)  :: hdb
-        type(c_ptr)                   :: ptr
         character(len=:), allocatable :: tc_hdb_iter_next2
+        type(c_ptr)                   :: ptr
         integer(kind=8)               :: size
 
         ptr = tc_hdb_iter_next2_(hdb)
@@ -647,8 +647,8 @@ contains
         !! Wrapper for `tc_hdb_path_()` that converts the returned C pointer to
         !! Fortran character.
         type(c_ptr),      intent(in)  :: hdb
-        type(c_ptr)                   :: ptr
         character(len=:), allocatable :: tc_hdb_path
+        type(c_ptr)                   :: ptr
         integer(kind=8)               :: size
 
         ptr = tc_hdb_path_(hdb)

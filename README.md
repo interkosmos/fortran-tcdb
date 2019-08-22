@@ -74,7 +74,8 @@ $ ./example
 
 ## Further Examples
 
-* **hdb** opens a hash database and does read/write operations.
+  * **hdb** opens a hash database and does read/write operations.
+  * **tcv** prints the Tokyo Cabinet version number (in case you really need this info …).
 
 Build the examples with:
 

@@ -289,8 +289,8 @@ contains
         !! Fortran character.
         type(c_ptr),      intent(in)  :: mdb
         character(len=*), intent(in)  :: kstr
-        type(c_ptr)                   :: ptr
         character(len=:), allocatable :: tc_mdb_get2
+        type(c_ptr)                   :: ptr
         integer(kind=8)               :: size
 
         ptr = tc_mdb_get2_(mdb, kstr // c_null_char)
@@ -309,8 +309,8 @@ contains
         !! Wrapper for `tc_mdb_iter_next2()` that converts the returned C
         !! pointer to Fortran character.
         type(c_ptr),      intent(in)  :: mdb
-        type(c_ptr)                   :: ptr
         character(len=:), allocatable :: tc_mdb_iter_next2
+        type(c_ptr)                   :: ptr
         integer(kind=8)               :: size
 
         ptr = tc_mdb_iter_next2_(mdb)
