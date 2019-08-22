@@ -12,6 +12,7 @@ all: tcdb examples
 
 examples:
 	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o hdb examples/hdb/hdb.f90 tcutil.o tchdb.o $(LDLIBS)
+	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o mdb examples/mdb/mdb.f90 tcutil.o tcmdb.o $(LDLIBS)
 	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o tcv examples/tcv/tcv.f90 tcutil.o version.o tcversion.o $(LDLIBS)
 
 tcdb:
@@ -23,4 +24,4 @@ tcdb:
 	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tchdb.f90
 
 clean:
-	rm *.mod *.o hdb tcv
+	rm *.mod *.o hdb mdb tcv

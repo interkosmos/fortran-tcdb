@@ -11,7 +11,7 @@ compatible to other Unix-like operating systems and Fortran 2008 compilers.
 
 In some cases, wrapper routines are used to add `c_null_char` to string
 arguments automatically. Performance is therefore slightly decreased, as an
-additional function call is performed. To avoid these wrappers, some interfaces
+additional function call is necessary. To avoid these wrappers, some interfaces
 are exposed directly, with a trailing underscore in their name, but null
 termination must be handled manually:
 
@@ -75,6 +75,7 @@ $ ./example
 ## Further Examples
 
   * **hdb** opens a hash database and does read/write operations.
+  * **mdb** creates an on-memory hash database, then writes to and reads from it.
   * **tcv** prints the Tokyo Cabinet version number (in case you really need this info …).
 
 Build the examples with:

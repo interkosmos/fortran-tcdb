@@ -1,6 +1,6 @@
 ! tcv.f90
 !
-! Example that simply prints the Tokyo Cabinet to stdout.
+! Example that simply prints the Tokyo Cabinet version to stdout.
 !
 ! Author:   Philipp Engel
 ! Licence:  ISC
