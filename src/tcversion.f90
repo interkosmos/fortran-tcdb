@@ -6,7 +6,7 @@
 ! Licence:  ISC
 module tcversion
     use, intrinsic :: iso_c_binding, only: c_associated, c_ptr
-    use :: tcutil, only: c_f_string_ptr, c_strlen
+    use :: util, only: c_f_string_ptr, c_strlen
     implicit none
     private
     public :: tc_version

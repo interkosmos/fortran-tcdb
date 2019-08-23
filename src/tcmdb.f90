@@ -9,7 +9,7 @@ module tcmdb
                                            c_f_pointer, c_bool, c_char, c_int, &
                                            c_int8_t, c_int32_t, c_int64_t, &
                                            c_null_char, c_ptr, c_size_t
-    use :: tcutil
+    use :: util
     implicit none
     private
 

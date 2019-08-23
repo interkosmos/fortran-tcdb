@@ -7,7 +7,7 @@
 module tclist
     use, intrinsic :: iso_c_binding, only: c_associated, c_f_pointer, c_char, &
                                            c_int, c_null_char, c_ptr
-    use :: tcutil
+    use :: util
     implicit none
     private
 
