@@ -2,7 +2,13 @@
 
 An ISO C binding interface to the
 [Tokyo Cabinet](https://fallabs.com/tokyocabinet/) key-value database for Fortran
-2008. At the moment, only hash databases are supported.
+2008. At the moment, only hash databases are supported. The interfaces are split
+across several modules:
+
+  * **tchdb.f90**: File-based hash database API.
+  * **tcmdb.f90**: On-memory hash database API.
+  * **tclist.f90**: Array List API.
+  * **version.c** and **tcversion.f90**: hack to access Tokyo Cabinet version number.
 
 ![Tokyo Cabinet](logo.png)
 
@@ -202,7 +208,7 @@ $ make examples
 | `tchdbvsiz`       | `tc_hdb_vsiz`                            |   ✓   |
 | `tchdbvsiz2`      | `tc_hdb_vsiz2`, `tc_hdb_vsiz2_`          |   ✓   |
 
-### Utilities
+### Utility API
 | Variable Name     | Fortran Interface Name                   | Bound |
 |-------------------|------------------------------------------|-------|
 | `*tcversion`      | `tc_version`                             |   ✓   |
