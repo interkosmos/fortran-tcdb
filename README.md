@@ -202,6 +202,11 @@ $ make examples
 | `tchdbvsiz`       | `tc_hdb_vsiz`                            |   ✓   |
 | `tchdbvsiz2`      | `tc_hdb_vsiz2`, `tc_hdb_vsiz2_`          |   ✓   |
 
+### Utilities
+| Variable Name     | Fortran Interface Name                   | Bound |
+|-------------------|------------------------------------------|-------|
+| `*tcversion`      | `tc_version`                             |   ✓   |
+
 ## Licence
 
 ISC
