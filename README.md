@@ -9,6 +9,7 @@ An ISO C binding interface to the
 Tested with Tokyo Cabinet 1.4.48 on FreeBSD 12 with GNU Fortran 9, but should be
 compatible to other Unix-like operating systems and Fortran 2008 compilers.
 
+### String Arguments
 In some cases, wrapper routines are used to add `c_null_char` to string
 arguments automatically. Performance is therefore slightly decreased, as an
 additional function call is necessary. To avoid these wrappers, some interfaces
@@ -75,7 +76,8 @@ $ ./example
 ## Further Examples
 
   * **hdb** opens a hash database and does read/write operations.
-  * **mdb** creates an on-memory hash database, then writes to and reads from it.
+  * **mdb** creates an on-memory hash database to store strings.
+  * **list** pushes strings to an array list.
   * **tcv** prints the Tokyo Cabinet version number (in case you really need this info …).
 
 Build the examples with:

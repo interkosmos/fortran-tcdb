@@ -7,5 +7,5 @@
 program main
     use :: tcversion
 
-    print '(2a)', 'Toky Cabinet, v.', tc_version()
+    print '(2a)', 'Tokyo Cabinet, v.', tc_version()
 end program main

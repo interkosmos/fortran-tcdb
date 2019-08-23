@@ -13,7 +13,7 @@ program main
     character(len=:), allocatable :: key
     character(len=:), allocatable :: value
 
-    ! Create hash database handle.
+    ! Create on-memory hash database handle.
     mdb = tc_mdb_new()
 
     ! Put key-value pairs into database.
