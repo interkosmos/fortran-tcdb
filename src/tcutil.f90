@@ -6,7 +6,7 @@
 ! Licence:  ISC
 module tcutil
     use, intrinsic :: iso_c_binding, only: c_associated, c_ptr
-    use :: cutil, only: c_f_string_ptr, c_strlen
+    use :: libc, only: c_f_string_ptr, c_strlen
     implicit none
     private
     public :: tc_version

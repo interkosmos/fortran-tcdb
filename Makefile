@@ -11,14 +11,14 @@ LDLIBS  = -ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc
 all: tcdb examples
 
 examples:
-	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o hdb examples/hdb/hdb.f90 cutil.o tchdb.o $(LDLIBS)
-	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o mdb examples/mdb/mdb.f90 cutil.o tcmdb.o $(LDLIBS)
-	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o list examples/list/list.f90 cutil.o tclist.o $(LDLIBS)
-	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o tcv examples/tcv/tcv.f90 cutil.o tcversion.o tcutil.o $(LDLIBS)
+	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o hdb examples/hdb/hdb.f90 libc.o tchdb.o $(LDLIBS)
+	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o mdb examples/mdb/mdb.f90 libc.o tcmdb.o $(LDLIBS)
+	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o list examples/list/list.f90 libc.o tclist.o $(LDLIBS)
+	$(FC) $(FFLAGS) $(LDFLAGS) -O1 -o tcv examples/tcv/tcv.f90 libc.o tcversion.o tcutil.o $(LDLIBS)
 
 tcdb:
 	$(CC) $(CFLAGS) $(LDFLAGS) -c src/tcversion.c
-	$(FC) $(FFLAGS) $(LDFLAGS) -c src/cutil.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -c src/libc.f90
 	$(FC) $(CFLAGS) $(LDFLAGS) -c src/tcutil.f90
 	$(FC) $(CFLAGS) $(LDFLAGS) -c src/tcmisc.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -c src/tclist.f90
