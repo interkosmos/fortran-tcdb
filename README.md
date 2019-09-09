@@ -8,7 +8,8 @@ across several modules:
   * **tchdb.f90**: File-based hash database API.
   * **tcmdb.f90**: On-memory hash database API.
   * **tclist.f90**: Array List API.
-  * **version.c** and **tcversion.f90**: hack to access Tokyo Cabinet version number.
+  * **tcmisc.f90**: Miscellaneous utilities API (date & time, MD5).
+  * **tcutil.f90**: Includes hack to access Tokyo Cabinet version number.
 
 ![Tokyo Cabinet](logo.png)
 
@@ -16,7 +17,7 @@ Tested with Tokyo Cabinet 1.4.48 on FreeBSD 12 with GNU Fortran 9, but should be
 compatible to other Unix-like operating systems and Fortran 2008 compilers.
 
 ### String Arguments
-In some cases, wrapper routines are used to add `c_null_char` to string
+In some cases, convenience routines are used to add `c_null_char` to string
 arguments automatically. Performance is therefore slightly decreased, as an
 additional function call is necessary. To avoid these wrappers, some interfaces
 are exposed directly, with a trailing underscore in their name, but null
@@ -75,7 +76,7 @@ Compile and run the example with:
 
 ```
 $ gfortran9 -Wl,-rpath=/usr/local/lib/gcc9/ -I/usr/local/include/ -L/usr/local/lib/ \
-  -O1 -o example example.f90 tcutil.o tchdb.o -ltokyocabinet
+  -O1 -o example example.f90 tchdb.o -ltokyocabinet
 $ ./example
 ```
 
@@ -208,10 +209,17 @@ $ make examples
 | `tchdbvsiz`       | `tc_hdb_vsiz`                            |   ✓   |
 | `tchdbvsiz2`      | `tc_hdb_vsiz2`, `tc_hdb_vsiz2_`          |   ✓   |
 
-### Utility API
+### Basic Utilities API
 | Variable Name     | Fortran Interface Name                   | Bound |
 |-------------------|------------------------------------------|-------|
 | `*tcversion`      | `tc_version`                             |   ✓   |
+
+### Miscellaneous Utilities API
+| Function Name     | Fortran Interface Name                   | Bound |
+|-------------------|------------------------------------------|-------|
+| `tcdatestrwww`    | `tc_date_str_www`                        |   ✓   |
+| `tcmd5hash`       | `tc_md5_hash`                            |   ✓   |
+| `tcstrmktime`     | `tc_str_mk_time`                         |   ✓   |
 
 ## Licence
 

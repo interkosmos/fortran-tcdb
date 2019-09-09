@@ -1,12 +1,12 @@
-! tcversion.f90
+! tcutil.f90
 !
-! Provides access to the Tokyo Cabinet version string.
+! Fortran 2008 interface basic utility functions to of Tokyo Cabinet.
 !
 ! Author:   Philipp Engel
 ! Licence:  ISC
-module tcversion
+module tcutil
     use, intrinsic :: iso_c_binding, only: c_associated, c_ptr
-    use :: util, only: c_f_string_ptr, c_strlen
+    use :: cutil, only: c_f_string_ptr, c_strlen
     implicit none
     private
     public :: tc_version
@@ -37,4 +37,4 @@ contains
         call c_f_string_ptr(ptr, tc_version)
         ! call c_free(ptr)
     end function tc_version
-end module tcversion
+end module tcutil

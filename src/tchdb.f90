@@ -9,7 +9,7 @@ module tchdb
                                            c_f_pointer, c_bool, c_char, c_int, &
                                            c_int8_t, c_int32_t, c_int64_t, &
                                            c_null_char, c_ptr, c_size_t
-    use :: util
+    use :: cutil
     implicit none
     private
 
@@ -166,7 +166,6 @@ module tchdb
         enumerator :: HDB_OTSYNC  = shiftl(1, 6)
     end enum
 
-    ! Function and routine interfaces to Tokyo Cabinet.
     interface
         ! double tchdbadddouble(TCHDB *hdb, const void *kbuf, int ksiz, double num)
         function tc_hdb_add_double(hdb, kbuf, ksiz, num) bind(c, name='tchdbadddouble')

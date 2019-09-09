@@ -19,10 +19,9 @@ program main
     ! value is specified. The default value is 4 standing for 2^4 = 16.
     integer(kind=1), parameter :: APOW = 4
 
-    ! Maximum number of elements of the free block is not more than 0, the
-    ! default value is specified. The default value is 131071. Suggested size
-    ! of the bucket array is about from 0.5 to 4 times of the number of all
-    ! records to be stored.
+    ! Maximum number of elements of the free block pool by power of 2. If it is
+    ! negative, the default value is specified. The default value is 10 standing
+    ! for 2^10 = 1024.
     integer(kind=1), parameter :: FPOW = 10
 
     ! Options by bitwise-or: `HDB_TLARGE` specifies that the size of the database

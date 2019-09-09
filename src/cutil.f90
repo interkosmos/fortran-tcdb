@@ -1,10 +1,10 @@
-! util.f90
+! cutil.f90
 !
 ! Interfaces to useful functions in libc.
 !
 ! Author:   Philipp Engel
 ! Licence:  ISC
-module util
+module cutil
     use, intrinsic :: iso_c_binding, only: c_associated, c_f_pointer, c_char, &
                                            c_null_char, c_ptr, c_size_t
     implicit none
@@ -52,4 +52,4 @@ contains
                 f_string(i:) = ' '
         end if
     end subroutine c_f_string_ptr
-end module util
+end module cutil

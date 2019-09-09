@@ -1,4 +1,4 @@
-/* version.c */
+/* tcver.c */
 /* Simple wrapper function for `*tcversion`. */
 #include <tcutil.h>
 

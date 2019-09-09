@@ -5,7 +5,7 @@
 ! Author:   Philipp Engel
 ! Licence:  ISC
 program main
-    use :: tcversion
+    use :: tcutil
 
     print '(2a)', 'Tokyo Cabinet, v.', tc_version()
 end program main
