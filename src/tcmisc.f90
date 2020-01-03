@@ -1,6 +1,6 @@
 ! tcmisc.f90
 !
-! Fortran 2008 interface miscellaneous utility functions to of Tokyo Cabinet.
+! Fortran 2008 interface to miscellaneous utility functions of Tokyo Cabinet.
 !
 ! Author:   Philipp Engel
 ! Licence:  ISC

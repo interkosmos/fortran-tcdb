@@ -1,9 +1,9 @@
 CC      = gcc9
 FC      = gfortran9
-RPATH   = -Wl,-rpath=/usr/local/lib/gcc9/
+PREFIX  = /usr/local
 CFLAGS  = -Wall
-FFLAGS  = -Wall $(RPATH) -std=f2008 -Wall -fmax-errors=1 -fcheck=all
-LDFLAGS = -I/usr/local/include/ -L/usr/local/lib/
+FFLAGS  = -Wall -Wl,-rpath=$PREFIX/lib/gcc9/ -std=f2008 -Wall -fmax-errors=1 -fcheck=all
+LDFLAGS = -I$PREFIX/include/ -L$PREFIX/lib/
 LDLIBS  = -ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc
 
 .PHONY: all clean examples
