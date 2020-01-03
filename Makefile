@@ -2,8 +2,8 @@ CC      = gcc9
 FC      = gfortran9
 PREFIX  = /usr/local
 CFLAGS  = -Wall
-FFLAGS  = -Wall -Wl,-rpath=$PREFIX/lib/gcc9/ -std=f2008 -Wall -fmax-errors=1 -fcheck=all
-LDFLAGS = -I$PREFIX/include/ -L$PREFIX/lib/
+FFLAGS  = -Wall -Wl,-rpath=$(PREFIX)/lib/gcc9/ -std=f2008 -Wall -fmax-errors=1 -fcheck=all
+LDFLAGS = -I$(PREFIX)/include/ -L$(PREFIX)/lib/
 LDLIBS  = -ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc
 
 .PHONY: all clean examples
