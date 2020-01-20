@@ -1,6 +1,6 @@
 # f08tcdb: Fortran 2008 Interface to Tokyo Cabinet
 
-An ISO C binding interface to the
+A collection of ISO C binding interfaces to the
 [Tokyo Cabinet](https://fallabs.com/tokyocabinet/) key-value database for Fortran
 2008. At the moment, only hash databases are supported. The interfaces are split
 across several modules:
@@ -117,8 +117,7 @@ $ make examples
 | `tclistpop`       | `tc_list_pop`                             |   ✓   |
 | `tclistpop2`      | `tc_list_pop2`                            |   ✓   |
 | `tclistpush`      | `tc_list_push`                            |   ✓   |
-| `tclistpush2`     | `tc_list_push2`                           |   ✓   |
-| `tclistpush2_`    | `tc_list_push2_`                          |   ✓   |
+| `tclistpush2`     | `tc_list_push2`, `tc_list_push2_`         |   ✓   |
 | `tclistremove`    | `tc_list_remove`                          |   ✓   |
 | `tclistremove2`   | `tc_list_remove2`, `tc_list_remove2_`     |   ✓   |
 | `tclistshift`     | `tc_list_shift`                           |   ✓   |
