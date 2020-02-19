@@ -1,5 +1,4 @@
-# f08tcdb: Fortran 2008 Interface to Tokyo Cabinet
-
+# fortran-tcdb: Fortran 2008 Interface to Tokyo Cabinet
 A collection of ISO C binding interfaces to the
 [Tokyo Cabinet](https://fallabs.com/tokyocabinet/) key-value database for Fortran
 2008. At the moment, only hash databases are supported. The interfaces are split
@@ -32,7 +31,6 @@ err = tc_hdb_put2_(hdb, 'foo' // c_null_char, 'bar' // c_null_char)
 ```
 
 ## Build
-
 At first, install Tokyo Cabinet. On FreeBSD, run:
 
 ```
@@ -49,7 +47,6 @@ Make sure that `PREFIX` points to the correct path. Link Tokyo Cabinet with
 `-ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc`.
 
 ## Example
-
 ```fortran
 ! example.f90
 program main
@@ -81,22 +78,21 @@ $ ./example
 ```
 
 ## Further Examples
+Additional examples can be found in `examples/`:
 
   * **hdb** opens a hash database and does read/write operations.
   * **mdb** creates an on-memory hash database to store strings.
   * **list** pushes strings to an array list.
   * **tcv** prints the Tokyo Cabinet version number (in case you really need this info …).
 
-Build the examples with:
+Build them with:
 
 ```
 $ make examples
 ```
 
 ## Coverage
-
 ### Array List API
-
 | Function Name     | Fortran Interface Name                    | Bound |
 |-------------------|-------------------------------------------|-------|
 | `tclistbsearch`   | `tc_list_bsearch`                         |   ✓   |
@@ -129,7 +125,6 @@ $ make examples
 | `tclistval2`      | `tc_list_val2`, `tc_list_val2_`           |   ✓   |
 
 ### On-Memory Hash Database API
-
 | Function Name     | Fortran Interface Name                    | Bound |
 |-------------------|-------------------------------------------|-------|
 | `tcmdbadddouble`  | `tc_mdb_add_double`                       |   ✓   |
@@ -160,7 +155,6 @@ $ make examples
 | `tcmdbvsiz2`      | `tc_mdb_vsiz2`, `tc_mdb_vsiz2_`           |   ✓   |
 
 ### Hash Database API
-
 | Function Name     | Fortran Interface Name                    | Bound |
 |-------------------|-------------------------------------------|-------|
 | `tchdbadddouble`  | `tc_hdb_add_double`                       |   ✓   |
@@ -221,5 +215,4 @@ $ make examples
 | `tcstrmktime`     | `tc_str_mk_time`                          |   ✓   |
 
 ## Licence
-
 ISC
