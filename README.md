@@ -1,16 +1,17 @@
 # fortran-tcdb: Fortran 2008 Interface to Tokyo Cabinet
 A collection of ISO C binding interfaces to the
 [Tokyo Cabinet](https://fallabs.com/tokyocabinet/) key-value database for Fortran
-2008. At the moment, only hash databases are supported. The interfaces are split
-across several modules:
+2008. At the moment, only hash databases are supported.
+
+![Tokyo Cabinet](logo.png)
+
+The interfaces are split across several modules:
 
   * **tchdb.f90**: File-based hash database API.
   * **tcmdb.f90**: On-memory hash database API.
   * **tclist.f90**: Array List API.
   * **tcmisc.f90**: Miscellaneous utilities API (date & time, MD5).
   * **tcutil.f90**: Includes hack to access Tokyo Cabinet version number.
-
-![Tokyo Cabinet](logo.png)
 
 Tested with Tokyo Cabinet 1.4.48 on FreeBSD 12 with GNU Fortran 9, but should be
 compatible to other Unix-like operating systems and Fortran 2008 compilers.
