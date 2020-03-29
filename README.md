@@ -1,4 +1,4 @@
-# fortran-tcdb: Fortran 2008 Interface to Tokyo Cabinet
+# fortran-tcdb
 A collection of ISO C binding interfaces to the
 [Tokyo Cabinet](https://fallabs.com/tokyocabinet/) key-value database for Fortran
 2008. At the moment, only hash databases are supported.
@@ -94,7 +94,7 @@ $ make examples
 
 ## Coverage
 ### Array List API
-| Function Name     | Fortran Interface Name                    | Bound |
+| C Function Name   | Fortran Interface Name                    | Bound |
 |-------------------|-------------------------------------------|-------|
 | `tclistbsearch`   | `tc_list_bsearch`                         |   ✓   |
 | `tclistclear`     | `tc_list_clear`                           |   ✓   |
@@ -126,7 +126,7 @@ $ make examples
 | `tclistval2`      | `tc_list_val2`, `tc_list_val2_`           |   ✓   |
 
 ### On-Memory Hash Database API
-| Function Name     | Fortran Interface Name                    | Bound |
+| C Function Name   | Fortran Interface Name                    | Bound |
 |-------------------|-------------------------------------------|-------|
 | `tcmdbadddouble`  | `tc_mdb_add_double`                       |   ✓   |
 | `tcmdbaddint`     | `tc_mdb_add_int`                          |   ✓   |
@@ -156,7 +156,7 @@ $ make examples
 | `tcmdbvsiz2`      | `tc_mdb_vsiz2`, `tc_mdb_vsiz2_`           |   ✓   |
 
 ### Hash Database API
-| Function Name     | Fortran Interface Name                    | Bound |
+| C Function Name   | Fortran Interface Name                    | Bound |
 |-------------------|-------------------------------------------|-------|
 | `tchdbadddouble`  | `tc_hdb_add_double`                       |   ✓   |
 | `tchdbaddint`     | `tc_hdb_add_int`                          |   ✓   |
@@ -204,12 +204,12 @@ $ make examples
 | `tchdbvsiz2`      | `tc_hdb_vsiz2`, `tc_hdb_vsiz2_`           |   ✓   |
 
 ### Basic Utilities API
-| Variable Name     | Fortran Interface Name                    | Bound |
+| C Variable Name   | Fortran Interface Name                    | Bound |
 |-------------------|-------------------------------------------|-------|
 | `*tcversion`      | `tc_version`                              |   ✓   |
 
 ### Miscellaneous Utilities API
-| Function Name     | Fortran Interface Name                    | Bound |
+| C Function Name   | Fortran Interface Name                    | Bound |
 |-------------------|-------------------------------------------|-------|
 | `tcdatestrwww`    | `tc_date_str_www`                         |   ✓   |
 | `tcmd5hash`       | `tc_md5_hash`                             |   ✓   |
