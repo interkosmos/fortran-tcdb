@@ -38,14 +38,15 @@ At first, install Tokyo Cabinet. On FreeBSD, run:
 # pkg install databases/tokyocabinet
 ```
 
-Development headers may be required on Linux. Then, run:
+Development headers may be required on Linux. Then, compile the static library
+`fortran-tcdb.a` with:
 
 ```
-$ make tcdb
+$ make static
 ```
 
 Make sure that `PREFIX` points to the correct path. Link Tokyo Cabinet with
-`-ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc`.
+`fortran-tcdb.a` and `-ltokyocabinet -lz -lbz2 -lrt -lpthread -lm -lc`.
 
 ## Example
 ```fortran
@@ -73,8 +74,7 @@ end program main
 Compile and run the example with:
 
 ```
-$ gfortran9 -Wl,-rpath=/usr/local/lib/gcc9/ -I/usr/local/include/ -L/usr/local/lib/ \
-  -O1 -o example example.f90 tchdb.o -ltokyocabinet
+$ gfortran -I/usr/local/include/ -L/usr/local/lib/ -o example example.f90 fortran-tcdb.a -ltokyocabinet
 $ ./example
 ```
 
